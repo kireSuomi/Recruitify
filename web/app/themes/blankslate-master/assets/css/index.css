@@ -1,0 +1,238 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+@font-face {
+  font-family: Merriweather-Regular;
+  src: url("../fonts/Merriweather-Regular.woff");
+}
+
+@font-face {
+  font-family: Merriweather-Bold;
+  src: url("../fonts/Merriweather-Bold.woff");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Merriweather-Bold;
+}
+
+html {
+  width: 100vw;
+  overflow-x: hidden;
+  background: #f2f2f2;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.my-1 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.mt-05 {
+  margin-top: 0.5em;
+}
+
+.mt-05.important {
+  margin-top: 0.5em !important;
+}
+
+.button {
+  border: 2px solid black;
+  padding: 10px;
+  background: none;
+  display: block;
+  text-transform: uppercase;
+  max-width: 200px;
+  margin: 1em 0;
+  cursor: pointer;
+  font-family: Helvetica;
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+}
+
+.button:hover {
+  background: #3a3a3a;
+  color: white;
+}
+
+header,
+footer {
+  min-height: 30px;
+  font-weight: bold;
+  background: #d7db2c;
+}
+
+header p,
+footer p {
+  padding: 22px;
+}
+
+.hero {
+  height: 70vh;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  content: "";
+  display: block;
+  background: rgba(1, 1, 1, 0.3);
+}
+
+.hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.hero svg {
+  z-index: 1;
+  width: 40vw;
+}
+
+.listings {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 55px;
+  text-align: center;
+}
+
+.listings article {
+  border-top: 1px solid black;
+  padding: 2em 0 4em 0;
+}
+
+.listings article h2 {
+  margin-bottom: 1em;
+}
+
+.listings article label {
+  font-family: Merriweather-Bold;
+  display: block;
+}
+
+.listings article .button {
+  margin: 1em auto;
+}
+
+.listings article .excerpt {
+  margin-top: 1em;
+}
+
+.pageNotFound {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2em;
+  height: calc(100vh - 93px);
+}
+
+.single-post .postSingleHero svg {
+  width: 30vw;
+  margin: 55px;
+}
+
+.single-post .post_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.single-post .post_container .post_author {
+  width: 30vw;
+  border-top: 1px solid black;
+  margin: 1em 22px 0 55px;
+  text-align: center;
+}
+
+.single-post .post_container .post_author label {
+  display: block;
+  font-weight: bold;
+  margin-top: 2em;
+}
+
+.single-post .post_container .post_author p {
+  margin-top: 5px;
+}
+
+.single-post .post_container .post_author .profile_pic {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  margin-top: 2em;
+  margin-bottom: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.single-post .post_container .post {
+  border-top: 1px solid black;
+  width: 70vw;
+  margin: 1em 22px 0 55px;
+  padding-top: 2em;
+}
+
+.single-post .post_container .post .button {
+  margin: 2em 0;
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.single-post .post_container .post > h1 {
+  margin-bottom: 1em;
+  font-size: 40px;
+}
+/*# sourceMappingURL=index.css.map */
