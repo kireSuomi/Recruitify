@@ -1,8 +1,22 @@
 <?php
 
 function listings(){
+
+    $today = date('Ymd');
+
+
+    //Query all listings that are not expired
     $posts = get_posts([
-        'numberposts' => 6
+        'numberposts' => -1,
+        'orderby' => 'meta_value',
+        'meta_query' => array(
+            array(
+                'key' => 'expiration_date',
+                'value' => $today,
+                'compare' => '>',
+            ),
+        ),
+        'order' => 'ASC',
     ]);
 
     echo '<section class="listings">';
@@ -15,7 +29,7 @@ function listings(){
     
     
         echo <<<ARTICLE
-        <article>
+        <article location='$location' type='$job_type'>
             <h2>$title</h2>
             <label>Yrke: $job_type</label>
             <label>Ort: $location</label>

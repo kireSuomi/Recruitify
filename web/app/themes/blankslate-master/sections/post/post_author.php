@@ -10,7 +10,12 @@ $job_title = get_field('job_title', 'user_'  .  $author->ID);
 $publish_date = explode(' ',$post->post_date)[0];
 $last_date = str_replace('/', '-', get_field('expiration_date', $post->ID));
 
-$profile_picture = get_field('profile_picture', 'user_'  . $author->ID)['url'];
+$profile_picture = get_field('profile_picture', 'user_'  . $author->ID);
+if ($profile_picture !== null) {
+         $profile_picture = $profile_picture['url'];
+} else {
+        $profile_picture = get_template_directory_uri() . '/assets/images/profile-pic.png';
+}
 $name = $author->display_name;
 $email = $author->user_email;
 

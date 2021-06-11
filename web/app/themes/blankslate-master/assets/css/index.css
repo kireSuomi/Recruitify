@@ -66,6 +66,16 @@ html {
   transition: 0.2s ease-in;
 }
 
+.button.disabled {
+  background: #00000042;
+  color: white;
+  cursor: not-allowed;
+}
+
+.button.disabled:hover {
+  background: #00000042;
+}
+
 .button:hover {
   background: #3a3a3a;
   color: white;
@@ -75,7 +85,7 @@ header,
 footer {
   min-height: 30px;
   font-weight: bold;
-  background: #d7db2c;
+  background: #d7db2d;
 }
 
 header p,
@@ -157,6 +167,13 @@ footer p {
   margin-top: 1em;
 }
 
+@media screen and (max-width: 800px) {
+  .listings {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
 .pageNotFound {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -173,6 +190,11 @@ footer p {
           align-items: center;
   gap: 2em;
   height: calc(100vh - 93px);
+}
+
+.single-post .postSingleHero {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .single-post .postSingleHero svg {
@@ -234,5 +256,32 @@ footer p {
 .single-post .post_container .post > h1 {
   margin-bottom: 1em;
   font-size: 40px;
+}
+
+@media screen and (max-width: 800px) {
+  .single-post .postSingleHero svg {
+    width: 65%;
+    margin: 22px;
+    margin-top: 44px;
+  }
+  .single-post .post_container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .single-post .post_container .post_author {
+    margin: 0 auto;
+    width: calc(100% - 44px);
+    padding: 0;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin-bottom: 2em;
+  }
+  .single-post .post_container .post {
+    margin: 22px;
+    width: calc(100% - 44px);
+  }
 }
 /*# sourceMappingURL=index.css.map */

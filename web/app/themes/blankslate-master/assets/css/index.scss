@@ -28,6 +28,16 @@ a {
   height: 100%;
 }
 
+@mixin mobile() {
+  @media screen and (max-width: 800px) {
+    @content;
+  }
+}
+
+$color_green: #d7db2d;
+$color_red: #eb5b27;
+$color_white: #f2f2f2;
+
 h1,
 h2,
 h3,
@@ -70,6 +80,16 @@ html {
   font-family: Helvetica;
   transition: 0.2s ease-in;
 
+  &.disabled {
+    background: #00000042;
+    color: white;
+    cursor: not-allowed;
+
+    &:hover {
+      background: #00000042;
+    }
+  }
+
   &:hover {
     background: #3a3a3a;
     color: white;
@@ -80,7 +100,7 @@ header,
 footer {
   min-height: 30px;
   font-weight: bold;
-  background: #d7db2c;
+  background: $color_green;
   p {
     padding: 22px;
   }
@@ -142,6 +162,10 @@ footer {
       margin-top: 1em;
     }
   }
+
+  @include mobile() {
+    grid-template-columns: 1fr;
+  }
 }
 
 .pageNotFound {
@@ -155,6 +179,8 @@ footer {
 
 .single-post {
   .postSingleHero {
+    max-width: 1200px;
+    margin: 0 auto;
     svg {
       width: 30vw;
       margin: 55px;
@@ -211,6 +237,32 @@ footer {
       > h1 {
         margin-bottom: 1em;
         font-size: 40px;
+      }
+    }
+  }
+
+  @include mobile() {
+    .postSingleHero {
+      svg {
+        width: 65%;
+        margin: 22px;
+        margin-top: 44px;
+      }
+    }
+    .post_container {
+      flex-direction: column;
+
+      .post_author {
+        margin: 0 auto;
+        width: calc(100% - 44px);
+        padding: 0;
+        order: 1;
+        margin-bottom: 2em;
+      }
+
+      .post {
+        margin: 22px;
+        width: calc(100% - 44px);
       }
     }
   }

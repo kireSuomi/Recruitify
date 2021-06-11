@@ -6,7 +6,7 @@ function hero($page_id){
 
     echo <<<HERO
     <section class='hero'>
-        <img  src="$bg_image" />
+        <img alt='man standing on street'  src="$bg_image" />
         $logo
     </section>
     HERO;

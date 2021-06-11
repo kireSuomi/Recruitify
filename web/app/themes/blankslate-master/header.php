@@ -3,7 +3,7 @@
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
         <meta name="viewport" content="width=device-width" />
-
+        <title>Recruitify</title>
         <meta name="language" content="se-sv" />
         <meta name="copyright" content="Erik Martin Andersson" />
         <meta name="robots" content="ALL" />

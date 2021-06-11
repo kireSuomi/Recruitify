@@ -7,6 +7,9 @@ function load_css() {
   
   $path =  get_stylesheet_directory_uri(  )  . '/assets/css/index.css';
   wp_enqueue_style('theme-override', $path , array(), '0.1.0', 'all');
+
+  $path =  get_stylesheet_directory_uri(  )  . '/assets/js/index.js';
+  wp_enqueue_script('theme-override-script', $path , array(), '0.1.0', 'all');
 }
 
 
@@ -106,9 +109,64 @@ add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
 
 add_filter( 'login_headerurl', 'custom_loginlogo_url' );
-
 function custom_loginlogo_url($url) {
-
      return '/';
-
 }
+
+
+//Add custom css to admin page
+add_action('admin_head', 'my_custom_fonts');
+function my_custom_fonts() {
+  //Hide repeater of applicants for the job post (theese are shown under a different tab on the admin page)
+  echo '<style>
+  .acf-field-60c25939fa937 {
+    display: none;
+  }
+
+
+  .candidates {
+    display: flex;
+    flex-wrap: wrap;  
+    gap: 10px;
+  }
+
+  .backend-user {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 250px;
+    background: white;
+    box-shadow: 3px 3px 3px rgba(1,1,1,0.2);
+    gap: 10px;
+    padding-bottom: 22px;
+    margin-top: 1em;
+  }
+  .backend-user p {
+    margin: 0;
+  }
+
+  .backend-user img {
+    wdith: 250px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+  }
+  </style>';
+}
+
+
+
+add_action( 'rest_api_init', function () {
+  register_rest_route( 'job', 'apply', array(
+    'methods' => 'POST',
+    'callback' => function($req) {
+      $data = json_decode( $req->get_body(), false);
+      $id = intval($data->id);
+      $value =  [
+        'field_60c2597efa938' => $id
+      ];
+      $res = add_row('field_60c25939fa937', $value, intval($data->postID));
+      echo true;
+    },
+  ) );
+} );

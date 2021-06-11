@@ -3,12 +3,14 @@
 
 
 include get_template_directory() . '/sections/hero.php';
+include get_template_directory() . '/sections/search.php';
 include get_template_directory() . '/sections/listings.php';
 
 get_header();
 
 $page_id = get_queried_object_id();
 hero($page_id);
+search_form();
 
 
 ?>
