@@ -29,8 +29,8 @@ function listings(){
     
     
         echo <<<ARTICLE
-        <article location='$location' type='$job_type'>
-            <h2>$title</h2>
+        <article class='listing' location='$location' type='$job_type'>
+            <h2 class='title'>$title</h2>
             <label>Yrke: $job_type</label>
             <label>Ort: $location</label>
             <p class='excerpt'>$excerpt</p>

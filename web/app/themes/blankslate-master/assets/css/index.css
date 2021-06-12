@@ -29,6 +29,11 @@ h5 {
   font-family: Merriweather-Bold;
 }
 
+select,
+option {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
 html {
   width: 100vw;
   overflow-x: hidden;
@@ -50,6 +55,15 @@ html {
 
 .mt-05.important {
   margin-top: 0.5em !important;
+}
+
+.underline {
+  border-bottom: 2px solid gray;
+  display: inline-block;
+}
+
+.orange {
+  color: orange;
 }
 
 .button {
@@ -91,6 +105,22 @@ footer {
 header p,
 footer p {
   padding: 22px;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+#header {
+  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: underline;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 .hero {
@@ -150,7 +180,7 @@ footer p {
   padding: 2em 0 4em 0;
 }
 
-.listings article h2 {
+.listings article .title {
   margin-bottom: 1em;
 }
 
@@ -161,6 +191,8 @@ footer p {
 
 .listings article .button {
   margin: 1em auto;
+  font-size: 14px;
+  margin-top: 2em;
 }
 
 .listings article .excerpt {
@@ -282,6 +314,83 @@ footer p {
   .single-post .post_container .post {
     margin: 22px;
     width: calc(100% - 44px);
+  }
+}
+
+.search {
+  max-width: 800px;
+  margin: 4% auto;
+  gap: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search input {
+  height: 55px;
+  padding: 10px;
+  border: none;
+  width: 300px;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.search button {
+  height: 55px;
+  padding: 10px;
+  border: none;
+  font-family: "Helvetica", "Arial", sans-serif;
+  width: 60px;
+  background: red;
+  color: white;
+}
+
+.search > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 360px;
+  margin: 0 auto;
+}
+
+.search > div:last-child {
+  gap: 10px;
+}
+
+.search > div select {
+  width: 50%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background: white;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  font-family: "Helvetica", "Arial", sans-serif;
+  background-position-y: 5px;
+}
+
+@media screen and (max-width: 800px) {
+  .search {
+    padding: 22px;
+  }
+  .search > div {
+    width: 100%;
+  }
+  .search > div button {
+    width: 20%;
+  }
+  .search > div input {
+    width: 80%;
   }
 }
 /*# sourceMappingURL=index.css.map */

@@ -20,7 +20,10 @@ function search_form(){
     <section class='search'>
        <div>
         <input id='searchText' />
-        <button>Sök</button>
+        <button id='btnSearch'>Sök</button>
+       </div>
+
+       <div>
         <select id='searchType'>
             <option>Yrke</option>
             $type_markup
@@ -30,6 +33,7 @@ function search_form(){
             $locations_markup
         </select>
        </div>
+     
     </section>
     SEACH;
 }

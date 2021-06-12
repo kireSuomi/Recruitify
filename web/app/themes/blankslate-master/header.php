@@ -16,7 +16,7 @@
     <div id="wrapper" class="hfeed">
 
     <header id="header">
-
+        <a href='/wp/wp-login.php?action=register'>Post a job</a>
     </header>
 
     <div id="container">

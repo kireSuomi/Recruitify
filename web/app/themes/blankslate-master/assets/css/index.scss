@@ -45,6 +45,10 @@ h4,
 h5 {
   font-family: Merriweather-Bold;
 }
+select,
+option {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
 
 html {
   width: 100vw;
@@ -66,6 +70,15 @@ html {
   &.important {
     margin-top: 0.5em !important;
   }
+}
+
+.underline {
+  border-bottom: 2px solid gray;
+  display: inline-block;
+}
+
+.orange {
+  color: orange;
 }
 
 .button {
@@ -101,9 +114,20 @@ footer {
   min-height: 30px;
   font-weight: bold;
   background: $color_green;
+
   p {
     padding: 22px;
+    font-family: "Helvetica", "Arial", sans-serif;
   }
+}
+
+#header {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-decoration: underline;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 .hero {
@@ -147,7 +171,7 @@ footer {
   article {
     border-top: 1px solid black;
     padding: 2em 0 4em 0;
-    h2 {
+    .title {
       margin-bottom: 1em;
     }
     label {
@@ -157,6 +181,8 @@ footer {
 
     .button {
       margin: 1em auto;
+      font-size: 14px;
+      margin-top: 2em;
     }
     .excerpt {
       margin-top: 1em;
@@ -263,6 +289,71 @@ footer {
       .post {
         margin: 22px;
         width: calc(100% - 44px);
+      }
+    }
+  }
+}
+
+.search {
+  max-width: 800px;
+  margin: 4% auto;
+  gap: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    height: 55px;
+    padding: 10px;
+    border: none;
+    width: 300px;
+    font-family: "Helvetica", "Arial", sans-serif;
+  }
+
+  button {
+    height: 55px;
+    padding: 10px;
+    border: none;
+    font-family: "Helvetica", "Arial", sans-serif;
+    width: 60px;
+    background: red;
+    color: white;
+  }
+
+  > div {
+    display: flex;
+    width: 360px;
+    margin: 0 auto;
+    &:last-child {
+      gap: 10px;
+    }
+    select {
+      width: 50%;
+      appearance: none;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background: white;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+      background-repeat: no-repeat;
+      background-position-x: 100%;
+      font-family: "Helvetica", "Arial", sans-serif;
+      background-position-y: 5px;
+    }
+  }
+
+  @include mobile() {
+    padding: 22px;
+
+    > div {
+      width: 100%;
+
+      button {
+        width: 20%;
+      }
+
+      input {
+        width: 80%;
       }
     }
   }

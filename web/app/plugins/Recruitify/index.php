@@ -72,7 +72,7 @@ function add_admin_page() {
   add_menu_page(
     'My Plugin Settings', //Page Title
     'Candidates', //Menu Title
-    'manage_options', //Capability
+    'read', //Capability
     'my-plugin', //Page slug
     'admin_page_html' //Callback to print html
   );

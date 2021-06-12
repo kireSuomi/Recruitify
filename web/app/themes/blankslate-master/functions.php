@@ -78,6 +78,10 @@ function my_login_logo() {
         color: white !important;
       }
 
+      h2, .acf-field  {
+        display: none;
+      }
+
       .login::after {
         position: absolute;
         top: 0;
