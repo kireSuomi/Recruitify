@@ -39,7 +39,6 @@
       //Values
       const type = typeSelect.value;
       const location = locationSelect.value;
-      console.clear();
       const listings = Array.from(document.querySelectorAll(".listing"));
 
       listings.forEach((listing) => {
@@ -52,36 +51,28 @@
           .querySelectorAll(".excerpt")[0]
           .innerHTML.toLowerCase();
 
-        let found = false;
+        //If the user has set a value for the select & the listing type or location matches the selected value
+        let typeMatch = type == "Yrke" ? true : type == listingType;
+        let locationMatch =
+          location == "Ort" ? true : location == listingLocation;
 
-        if (type !== "Yrke") {
-          if (type == listingType) found = true;
-        }
-
-        if (location !== "Ort") {
-          location == listingLocation ? (found = true) : (found = false);
-        }
-
+        //If the search field has a value and the title contains the value
+        let titleMatch = false;
         if (textSearch.value !== "") {
-          if (
-            listingTitle.includes(textSearch.value.toLowerCase()) &&
-            (location !== "Ort" ? location == listingLocation : true) &&
-            (type !== "Yrke" ? type == listingType : true)
-          ) {
-            found = true;
-          } else {
-            if (listingExcerpt.includes(textSearch.value.toLowerCase())) {
-              found = true;
-            } else {
-              found = false;
-            }
-          }
-        }
+          titleMatch = listingTitle
+            .toLocaleLowerCase()
+            .includes(textSearch.value.toLowerCase());
+        } else titleMatch = true;
 
-        if (type == "Yrke" && location == "Ort" && textSearch.value == "")
-          found = true;
+        //If the search field has a value and the excerpt contains the value
+        let excerptMatch = false;
+        if (textSearch.value !== "") {
+          excerptMatch = listingExcerpt
+            .toLocaleLowerCase()
+            .includes(textSearch.value.toLowerCase());
+        } else excerptMatch = true;
 
-        found
+        typeMatch && locationMatch && (titleMatch || excerptMatch)
           ? (listing.style.display = "block")
           : (listing.style.display = "none");
       });
