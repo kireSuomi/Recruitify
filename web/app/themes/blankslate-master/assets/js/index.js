@@ -42,6 +42,7 @@
       const listings = Array.from(document.querySelectorAll(".listing"));
 
       listings.forEach((listing) => {
+        let textSearchValue = textSearch.value.toLowerCase();
         let listingType = listing.getAttribute("type");
         let listingLocation = listing.getAttribute("location");
         let listingTitle = listing
@@ -52,22 +53,20 @@
           .innerHTML.toLowerCase();
 
         //If the user has set a value for the select & the listing type or location matches the selected value
-        let ? true : type == listingType;
+        let typeMatch = type == "Yrke" ? true : type == listingType;
         let locationMatch =
           location == "Ort" ? true : location == listingLocation;
 
         //If the search field has a value and the title contains the value
         let titleMatch = false;
-        if (textSearch.value !== "") {
-          titleMatch = listingTitle.includes(textSearch.value.toLowerCase());
+        if (textSearchValue !== "") {
+          titleMatch = listingTitle.includes(textSearchValue);
         } else titleMatch = true;
 
         //If the search field has a value and the excerpt contains the value
         let excerptMatch = false;
-        if (textSearch.value !== "") {
-          excerptMatch = listingExcerpt.includes(
-            textSearch.value.toLowerCase()
-          );
+        if (textSearchValue !== "") {
+          excerptMatch = listingExcerpt.includes(textSearchValue);
         } else excerptMatch = true;
 
         typeMatch && locationMatch && (titleMatch || excerptMatch)
