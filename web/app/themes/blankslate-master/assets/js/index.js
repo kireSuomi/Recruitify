@@ -52,24 +52,22 @@
           .innerHTML.toLowerCase();
 
         //If the user has set a value for the select & the listing type or location matches the selected value
-        let typeMatch = type == "Yrke" ? true : type == listingType;
+        let ? true : type == listingType;
         let locationMatch =
           location == "Ort" ? true : location == listingLocation;
 
         //If the search field has a value and the title contains the value
         let titleMatch = false;
         if (textSearch.value !== "") {
-          titleMatch = listingTitle
-            .toLocaleLowerCase()
-            .includes(textSearch.value.toLowerCase());
+          titleMatch = listingTitle.includes(textSearch.value.toLowerCase());
         } else titleMatch = true;
 
         //If the search field has a value and the excerpt contains the value
         let excerptMatch = false;
         if (textSearch.value !== "") {
-          excerptMatch = listingExcerpt
-            .toLocaleLowerCase()
-            .includes(textSearch.value.toLowerCase());
+          excerptMatch = listingExcerpt.includes(
+            textSearch.value.toLowerCase()
+          );
         } else excerptMatch = true;
 
         typeMatch && locationMatch && (titleMatch || excerptMatch)
